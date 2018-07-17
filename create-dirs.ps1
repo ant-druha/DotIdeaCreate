@@ -54,6 +54,6 @@ foreach ($line in Get-Content "$dot_idea_dir\.idea\modules.xml") {
     $iml_file_src = Join-Path $imls_dir $file_name
     $iml_file_dst = Join-Path $full_path $file_name
     Write-Output "Copy file from $iml_file_src to $iml_file_dst"
-    Copy-Item $iml_file_src -Destination $iml_file_dst
+    Copy-Item -Path $iml_file_src -Destination $iml_file_dst
   }
 }
