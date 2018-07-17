@@ -31,9 +31,11 @@ testDirExists $imls_dir 'iml' 1
 Write-Output "Scipt location: $sript_path"
 Write-Output ".idea dir location: $dot_idea_dir"
 Write-Output "iml files location: $imls_dir"
+Write-Output ""
 
 foreach ($line in Get-Content "$dot_idea_dir\.idea\modules.xml") {
   if ( [regex]::IsMatch($line, "^\s*<module fileurl")) {
+    Write-Output ""
     $start = $line.IndexOf('filepath="$PROJECT_DIR$')
     $filepath = $line.Substring($start)
     Write-Output "Processing file: $filepath"
